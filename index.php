@@ -2,18 +2,6 @@
 
 require_once ('./user.php');
 
-/*
-
-$user = new User();
-$user_list = $user->get_all_users();
-
-echo "<pre>";
-print_r($user_list);
-
-*/
-
-
-
 session_start();
   if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != 1){
     header("location: /login.php");
@@ -27,14 +15,11 @@ session_start();
   </head>
   <body>
 
-    <h1>Assignment 1</h1>
+    <h1>Assignment 2</h1>
 
     <p>Welcome, <?= $_SESSION['username'] ?>!</p>
     <p> <?= date("Y-M-d") ?> </p>
 
-    <!--
-    <p> <a href="/login.php">Click here to login</a> </p>
-    -->
   </body>
 
   <footer>
