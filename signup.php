@@ -4,6 +4,14 @@ if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 1) {
   $failed = "Username or password cannot be empty.";
   $_SESSION['error_signup'] = 0;
 }
+else if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 2) {
+    $failed = "Password should be atleast 10 characters long.";
+    $_SESSION['error_signup'] = 0;
+}
+else if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 3) {
+    $failed = "Passwords does not match. Try again.";
+    $_SESSION['error_signup'] = 0;
+  }
 else {
   $failed = "";
 }
@@ -27,6 +35,10 @@ else {
       <label for="password">Password:</label>
       <br>
       <input type="password" id="password" name="password">
+      <br>
+      <label for="password">Confirm password:</label>
+      <br>
+      <input type="password" id="password2" name="password2">
       <br><br>
       <input type="submit" value="Sign up">
       <br>
