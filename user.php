@@ -20,6 +20,28 @@ Class User {
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row;
   }
+
+
+  public function register_user($username, $password) {
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $isExistingUser = get_user_by_username($username);
+
+    if ($isExistingUser) {
+      echo "Username already exists. Please choose another one.";
+    }
+    else {
+         
+      $dbh = db_connect();
+      $statement = $dbh->prepare("insert into users (username, password) values (:username, :password);");
+      $statement->bindParam(':username', $username);
+      $statement->bindParam(':password', $hashed_password);
+      $statement->execute();
+      $row = $statement->fetch(PDO::FETCH_ASSOC);
+      header("location: /login.php");
+      echo "User registered successfully.";
+    }
+  }
   
 }
 
