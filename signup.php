@@ -16,7 +16,7 @@
       <br>
       <input type="password" id="password" name="password">
       <br><br>
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Sign up">
       <br>
     </form>
 
