@@ -30,6 +30,7 @@ Class User {
     
     if ($existing_username == $username) {
       echo "Username already exists. Please choose another one.";
+      return;
     }
     else {
       $dbh = db_connect();
@@ -37,7 +38,7 @@ Class User {
       $statement->bindParam(':username', $username);
       $statement->bindParam(':password', $hashed_password);
       $statement->execute();
-      $row = $statement->fetch(PDO::FETCH_ASSOC);
+      //$row = $statement->fetch(PDO::FETCH_ASSOC);
       header("location: /login.php");
       echo "User registered successfully.";
     }
