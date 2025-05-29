@@ -32,6 +32,11 @@
       <input type="submit" value="Submit">
       <br>
       <p style="color:red;"><?= $failed ?></p>
+
+      <p><a href="/signup.php">Sign up</a></p>
+      <br>
+
+      
     </form>
 
   </body>
