@@ -26,14 +26,13 @@ Class User {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $existing_user_data = $this->get_user_by_username($username);
-    $existing_username = $existing_user_data['username'];
-    
-    if ($existing_user_data && $existing_username['username'] == $username) {
+        
+    if ($existing_user_data && $existing_user_data['username'] == $username)  {
       echo "Username already exists. Please choose another one.";
       return;
     }
     else {
-      die;
+      
       $dbh = db_connect();
       $statement = $dbh->prepare("insert into users (username, password) values (:username, :password);");
       $statement->bindParam(':username', $username);
