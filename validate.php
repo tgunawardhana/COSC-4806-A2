@@ -1,19 +1,25 @@
 <?php
+require_once ('./user.php');
 
 session_start();
 
-$valid_username = "teddy";
-$valid_password = "password";
+$user = new User();
+$user_data = $user->get_user_by_username($_REQUEST['username']);
+$valid_username = $user_data['username'];
+$valid_password = $user_data['password'];
 
 $username = $_REQUEST['username'];
 $_SESSION['username'] = $username;
 $password = $_REQUEST['password'];
 
-if ($valid_username == $username && $valid_password == $password){
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+if ($valid_username == $username && password_verify($password, $valid_password)){
     $_SESSION['authenticated'] = 1;
      $_SESSION['failed'] = 0;
     header("location: /");
-} else {
+} 
+else {
     if(!isset($_SESSION['failed_attempts'])){
         $_SESSION['failed_attempts'] = 1;
     } else {
