@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 1) {
   $failed = "Username or password cannot be empty.";
+  $_SESSION['error_signup'] = 0;
 }
 else {
   $failed = "";
