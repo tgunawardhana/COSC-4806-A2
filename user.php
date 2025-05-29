@@ -40,7 +40,7 @@ Class User {
       $statement->execute();
       //$row = $statement->fetch(PDO::FETCH_ASSOC);
       header("location: /login.php");
-      echo "User registered successfully.";
+      return "User registered successfully.";
     }
   }
   
