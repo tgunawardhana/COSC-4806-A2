@@ -1,6 +1,7 @@
 <?php
 
 require_once './database.php';
+session_start();
 
 Class User {
 
@@ -28,7 +29,8 @@ Class User {
     $existing_user_data = $this->get_user_by_username($username);
         
     if ($existing_user_data && $existing_user_data['username'] == $username)  {
-      echo "Username already exists. Please choose another one.";
+      $_SESSION['error_signup'] = 4;
+      header("location: /signup.php");
       return;
     }
     else {
@@ -39,8 +41,9 @@ Class User {
       $statement->bindParam(':password', $hashed_password);
       $statement->execute();
       //$row = $statement->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['signup_complete'] = 1;
       header("location: /login.php");
-      return "User registered successfully.";
+      return;
     }
   }
   

@@ -12,6 +12,10 @@ else if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 3) {
     $failed = "Passwords does not match. Try again.";
     $_SESSION['error_signup'] = 0;
   }
+else if (isset($_SESSION['error_signup']) && $_SESSION['error_signup'] == 4) {
+    $failed = "Username exists. Try another one";
+    $_SESSION['error_signup'] = 0;
+  }
 else {
   $failed = "";
 }

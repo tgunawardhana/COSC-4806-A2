@@ -2,8 +2,7 @@
 
 require_once ('./user.php');
 
-session_start();
-  if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != 1){
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != 1){
     header("location: /login.php");
   }
 ?>

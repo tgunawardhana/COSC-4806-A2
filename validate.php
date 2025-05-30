@@ -1,8 +1,6 @@
 <?php
 require_once ('./user.php');
 
-session_start();
-
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 
@@ -12,6 +10,7 @@ if ($username == "" || $password == "") {
     return;
 }
 
+//Login logic
 $user = new User();
 $user_data = $user->get_user_by_username($_REQUEST['username']);
 $valid_username = $user_data['username'];

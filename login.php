@@ -10,8 +10,14 @@
     $failed = "Username or password cannot be empty.";
     $_SESSION['error_data'] = 0;
   }
+    else if (isset($_SESSION['signup_complete']) && $_SESSION['signup_complete'] == 1) {
+      $success = "User registered successfully.";
+      $_SESSION['signup_complete'] = 0;
+    }
+    
   else {
-    $failed = "";
+    $failed = " ";
+    $success = " ";
   }
 
 ?>
@@ -37,7 +43,7 @@
       <input type="submit" value="Submit">
       <br>
       <p style="color:red;"><?= $failed ?></p>
-
+      <p style="color:green;"><?= $success ?></p>
       <p><a href="/signup.php">Sign up</a></p>
       <br>
 
