@@ -1,6 +1,9 @@
 <?php
   session_start();
 
+$failed = "";
+$success = "";
+
   if (isset($_SESSION['failed']) && $_SESSION['failed'] == 1) {
     $failed = "Username or password is incorrect.
     Unsuccessful attempts " . $_SESSION['failed_attempts'] . ".";
@@ -16,8 +19,8 @@
     }
     
   else {
-    $failed = " ";
-    $success = " ";
+    $failed = "";
+    $success = "";
   }
 
 ?>
