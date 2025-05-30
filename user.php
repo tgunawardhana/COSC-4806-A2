@@ -32,7 +32,7 @@ Class User {
     if ($existing_user_data && $existing_user_data['username'] == $username)  {
       $_SESSION['error_signup'] = 4;
       header("location: /signup.php");
-
+      exit();
     }
     else {
       
@@ -43,6 +43,7 @@ Class User {
       $statement->execute();
       $_SESSION['signup_complete'] = 1;
       header("location: /login.php");
+      exit();
     }
   }
   

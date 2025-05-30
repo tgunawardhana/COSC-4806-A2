@@ -7,6 +7,7 @@ $password = $_REQUEST['password'];
 if ($username == "" || $password == "") {
     $_SESSION['error_data'] = 1;
     header("location: /login.php");
+    exit();
 }
 
 //Login logic
@@ -22,6 +23,7 @@ if ($valid_username == $username && password_verify($password, $valid_password))
     $_SESSION['error_data'] = 0;
     $_SESSION['username'] = $username;
     header("location: /");
+    exit();
 } 
 else {
     
@@ -33,7 +35,7 @@ else {
     $_SESSION['error_data'] = 0;
     $_SESSION['failed'] = 1;  
     header("location: /login.php");
-
+    exit();
 }
 
 ?>

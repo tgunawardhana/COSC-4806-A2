@@ -9,15 +9,18 @@ $password2 = $_REQUEST['password2'];
 if ($username == "" || $password == "") {
     $_SESSION['error_signup'] = 1;
     header("location: /signup.php");
+    exit();
 }
    
 else if (strlen($password) < 10){
     $_SESSION['error_signup'] = 2;
     header("location: /signup.php");
+    exit();
 }
 else if ($password != $password2){
     $_SESSION['error_signup'] = 3;
     header("location: /signup.php");
+    exit();
 }
 
 $_SESSION['failed'] = 0;
