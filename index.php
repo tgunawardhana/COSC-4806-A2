@@ -1,12 +1,12 @@
 <?php
 
-require_once ('./user.php');
+require_once ('./user.php'); 
 
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != 1){
     header("location: /login.php");
   }
 ?>
-
+  
 <!DOCTYPE html>
 <html>
   <head>

@@ -7,7 +7,6 @@ $password = $_REQUEST['password'];
 if ($username == "" || $password == "") {
     $_SESSION['error_data'] = 1;
     header("location: /login.php");
-    return;
 }
 
 //Login logic
